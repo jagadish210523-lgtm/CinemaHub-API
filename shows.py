@@ -30,7 +30,7 @@ class Timings(BaseModel):
     show_time : time
 
 
-@shows.post("timing")
+@shows.post("/timing")
 async def add_shows(new_show : Timings, db : db_dependency, user : authenticate):
     if user is None:
         raise HTTPException(status_code = 404, detail = 'Authentication failed')
